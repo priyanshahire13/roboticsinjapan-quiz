@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Japan's Innovation Challenge</title>
+<style>
+:root{--ink:#191923;--navy:#171725;--red:#c93630;--gold:#c6a24d;--paper:#fff9f7;--pink:#f7e9e9;--muted:#77717a;--line:#ead8d8;--green:#2d7657}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+.topbar{height:8px;background:linear-gradient(90deg,var(--red) 0 35%,var(--gold) 35% 48%,var(--navy) 48%)}
+header,main,footer{max-width:980px;margin:auto;padding-left:22px;padding-right:22px}
+header{padding-top:27px;padding-bottom:18px}.eyebrow{font:700 11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+h1{font-size:clamp(36px,6vw,58px);line-height:.98;letter-spacing:-.04em;margin:12px 0 9px}.sub{font:15px/1.55 Arial,sans-serif;color:#625d66;max-width:650px}
+.jp{color:var(--gold);font:700 13px Arial,sans-serif;letter-spacing:.08em;margin-top:12px}
+main{padding-bottom:42px}.banner{display:flex;justify-content:space-between;align-items:center;gap:15px;background:var(--navy);color:white;padding:17px 20px;margin:10px 0 20px;border-radius:4px}
+.banner b{font-size:17px}.banner small{display:block;font:11px Arial,sans-serif;color:#e8c5c8;letter-spacing:.1em;margin-top:5px}.kanji{font-size:34px;color:var(--gold)}
+.panel{background:#fff;border:1px solid var(--line);box-shadow:0 7px 20px #3a20200c;border-radius:5px;padding:clamp(20px,4vw,34px)}
+.hidden{display:none!important}
+h2{font-size:clamp(25px,4vw,34px);line-height:1.2;margin:8px 0 14px}
+p{font:14px/1.6 Arial,sans-serif;color:#625d66}
+label{display:block;font:700 12px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#625d66;margin:22px 0 8px}
+input{width:100%;max-width:440px;border:1px solid #d9caca;border-radius:3px;padding:14px;font:16px Arial,sans-serif;background:#fffdfc}
+input:focus{outline:2px solid #e7b6b2;border-color:var(--red)}
+button{border:0;background:var(--red);color:white;padding:13px 21px;font:700 12px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;cursor:pointer}
+button:hover{background:#a92d28}button:disabled{opacity:.4;cursor:not-allowed}.secondary{background:var(--navy)}.secondary:hover{background:#303047}
+.notice{font:12px/1.5 Arial,sans-serif;color:var(--muted);margin-top:12px}.error{color:#a52f2b;font:13px Arial,sans-serif;margin-top:12px}
+.meta{display:flex;justify-content:space-between;gap:10px;font:11px Arial,sans-serif;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.progress{height:5px;background:#f0e5e5;margin:13px 0 25px}.fill{height:100%;width:0;background:var(--red);transition:width .2s}
+.kicker{font:700 11px Arial,sans-serif;color:var(--red);letter-spacing:.17em;text-transform:uppercase;margin-bottom:11px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.option{display:flex;gap:12px;align-items:flex-start;text-align:left;background:#fffdfc;border:1px solid var(--line);padding:15px;min-height:65px;border-radius:4px;color:var(--ink);font:14px/1.4 Arial,sans-serif;text-transform:none;letter-spacing:0}
+.option:hover:not(:disabled){border-color:var(--red);background:#fff8f6}.letter{display:grid;place-items:center;flex:0 0 26px;height:26px;border-radius:50%;background:var(--pink);color:var(--red);font-weight:bold}
+.option.correct{border-color:var(--green);background:#f1f8f4}.option.incorrect{border-color:var(--red);background:#fff4f2}
+.feedback{display:none;margin-top:16px;padding:13px 15px;background:#fcf8ee;border-left:3px solid var(--gold);font:13px/1.5 Arial,sans-serif}.feedback.show{display:block}
+.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:25px}.muted{font:12px Arial,sans-serif;color:var(--muted)}
+.score-big{font-size:56px;color:var(--red);font-weight:bold;margin:9px 0}
+table{width:100%;border-collapse:collapse;font:14px Arial,sans-serif;margin-top:14px}th{text-align:left;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:11px 8px;border-bottom:1px solid var(--line)}td{padding:13px 8px;border-bottom:1px solid #f0e7e7}td:last-child,th:last-child{text-align:right}.rank{font-size:19px;width:38px}.me{background:#fff7e9}
+.status{display:inline-flex;align-items:center;gap:7px;font:11px Arial,sans-serif;color:var(--muted)}.dot{width:7px;height:7px;border-radius:50%;background:#aaa}.dot.live{background:#32865f}
+footer{padding-bottom:30px;display:flex;justify-content:space-between;gap:10px;color:#8b8188;font:11px Arial,sans-serif}
+@media(max-width:620px){.options{grid-template-columns:1fr}.controls{align-items:flex-end}.banner{align-items:flex-start}.panel{padding:20px 17px}table{font-size:12px}td,th{padding:11px 5px}}
+</style>
+</head>
+<body><div class="topbar"></div>
+<header><div class="eyebrow">A classroom quiz · 日本の革新</div><h1>Japan's Innovation<br>Challenge</h1><div class="sub">Robotics & technology that help people. How much do you remember from the presentation?</div><div class="jp">技術 GIJUTSU — TECHNOLOGY</div></header>
+<main>
+<div class="banner"><div><b>Welcome to the challenge</b><small>12 QUESTIONS · 15 SECONDS EACH · LIVE LEADERBOARD</small></div><div class="kanji">日本</div></div>
+
+<section class="panel" id="welcome">
+ <div class="eyebrow">Before we begin</div><h2>What's your name?</h2>
+ <p>Enter your first name or a nickname so your score can appear on the class leaderboard.</p>
+ <label for="studentName">Name or nickname</label><input id="studentName" maxlength="20" autocomplete="nickname" placeholder="e.g. Priya">
+ <div style="margin-top:18px"><button id="startBtn">Start the quiz →</button></div>
+ <div class="notice">Please don't enter your full name, phone number, email or other personal details.</div>
+ <div class="error" id="welcomeError"></div>
+</section>
+
+<section class="panel hidden" id="quizPanel">
+ <div class="meta"><span id="counter">QUESTION 01 / 12</span><span id="topic">ROOTS & CULTURE</span><span id="timer">15s</span></div>
+ <div class="progress"><div class="fill" id="progress"></div></div>
+ <div class="kicker" id="kicker"></div><h2 id="question"></h2>
+ <div class="options" id="options"></div><div class="feedback" id="feedback" aria-live="polite"></div>
+ <div class="controls"><span class="muted" id="hint">Choose the best answer.</span><button id="nextBtn" disabled>Next question →</button></div>
+</section>
+
+<section class="panel hidden" id="resultPanel">
+ <div class="eyebrow">Quiz complete</div><h2 id="resultTitle">Well done!</h2>
+ <div class="score-big" id="score"></div><p id="resultMessage"></p>
+ <div class="status" id="saveStatus"><span class="dot"></span><span>Saving your score…</span></div>
+ <div style="margin-top:22px"><button id="showBoardBtn">View class leaderboard ↓</button></div>
+</section>
+
+<section class="panel hidden" id="boardPanel">
+ <div class="eyebrow">The class standings</div><h2>Leaderboard</h2>
+ <p>Highest points rank first. Each correct answer earns 10–100 points based on speed. Ties are ordered by the shorter completion time.</p>
+ <div class="status" id="liveStatus"><span class="dot"></span><span>Connecting…</span></div>
+ <div style="overflow-x:auto"><table><thead><tr><th>Rank</th><th>Student</th><th>Points</th><th>Time</th></tr></thead><tbody id="boardRows"><tr><td colspan="4">Loading scores…</td></tr></tbody></table></div>
+ <div class="controls"><span class="muted" id="boardNote">Scores update when students finish.</span><button class="secondary" id="refreshBtn">Refresh</button></div>
+</section>
+</main>
+<footer><span>Japan's Innovation Story · 日本の革新</span><span>ありがとうございます</span></footer>
+
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+// SET THESE TWO VALUES AFTER CREATING YOUR SUPABASE PROJECT.
+const SUPABASE_URL = "https://gynfstencinjldnuoypd.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_xmSDBw4C0uaPeXLUsHgCoQ_LYJ-CfFE";
+const configured = SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("PASTE_") && !SUPABASE_ANON_KEY.includes("PASTE_");
+const db = configured ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
+const questions = [
+{topic:"ROOTS & CULTURE",kicker:"01 · THE EARLY YEARS",q:"What were karakuri in 1600s Japan?",o:["Clockwork dolls that could serve tea","Robots used on car factory lines","A walking robot suit","A robot seal used in therapy"],a:0,w:"Karakuri were clockwork dolls, including dolls designed to serve tea."},
+{topic:"ROOTS & CULTURE",kicker:"02 · ROBOT HISTORY",q:"Which robot was built in Osaka in 1928?",o:["ASIMO","Gakutensoku","WABOT-1","PARO"],a:1,w:"The presentation identifies Gakutensoku as Japan's first robot, built in Osaka in 1928."},
+{topic:"ROOTS & CULTURE",kicker:"03 · PEOPLE & CULTURE",q:"Which two well-known characters are mentioned as friendly robot figures?",o:["Mario and Pikachu","Astro Boy and Doraemon","Snoopy and Hello Kitty","Anpanman and Totoro"],a:1,w:"The presentation says Astro Boy and Doraemon help people in their stories."},
+{topic:"FACTORY ROBOTS",kicker:"04 · MAKING THINGS",q:"Which company is known in the presentation for its famous yellow factory robots?",o:["Honda","Sony","FANUC","Toyota"],a:2,w:"FANUC is highlighted for its famous yellow industrial robots."},
+{topic:"FACTORY ROBOTS",kicker:"05 · THE BIG PICTURE",q:"According to the presentation, approximately how many robots are there per 10,000 factory workers in Japan (2022)?",o:["285","419","730","1,012"],a:1,w:"The chart on page 7 gives Japan approximately 419 robots per 10,000 factory workers."},
+{topic:"FACTORY ROBOTS",kicker:"06 · WHY FACTORIES USE THEM",q:"How do factory robots help keep workers safer?",o:["They replace every worker","They do heavy and hot jobs","They make every product by hand","They remove the need for safety rules"],a:1,w:"The presentation explains that robots can take on heavy and hot jobs, helping workers stay safe."},
+{topic:"CARE ROBOTS",kicker:"07 · A ROBOT THAT COMFORTS",q:"What is PARO?",o:["A walking humanoid robot","A factory robot arm","A soft robot seal that responds to petting","A robot suit that helps people lift"],a:2,w:"PARO is described as a soft robot seal that purrs and moves when someone pets it."},
+{topic:"CARE ROBOTS",kicker:"08 · SUPPORTING CAREGIVERS",q:"What was Robear designed to do?",o:["Lift people gently out of bed","Build cars on an assembly line","Help people control a distant avatar","Teach children Japanese"],a:0,w:"The presentation says Robear was built to lift people gently out of bed."},
+{topic:"WEARABLE ROBOTS",kicker:"09 · ROBOT SUITS",q:"How does the HAL robot suit help its wearer?",o:["It translates Japanese","It reads tiny signals from the skin to help the legs move","It delivers parcels by drone","It makes factory products"],a:1,w:"HAL reads tiny signals from the skin and helps the wearer's legs move."},
+{topic:"SOCIETY 5.0",kicker:"10 · A SMARTER SOCIETY",q:"What does Society 5.0 aim to bring together?",o:["Only factories and machines","Computers and real life","Tourism and traditional cooking","Robots and video games"],a:1,w:"The presentation describes Society 5.0 as joining computers with real life."},
+{topic:"CHALLENGES & FUTURE",kicker:"11 · WHAT NEEDS WORK",q:"Which challenge for Japan's robotics industry is mentioned?",o:["Robots cannot use electricity","Japan has too many robot programmers","Robots can be costly, and small companies may struggle to start","Factories are no longer using machines"],a:2,w:"The presentation lists high costs, difficulties for small companies, and a need for more people who can program and repair robots."},
+{topic:"CHALLENGES & FUTURE",kicker:"12 · LOOKING AHEAD",q:"What is a robot avatar, as described in the presentation?",o:["A cartoon robot printed on a poster","A robot controlled from far away, allowing someone to work remotely","A robot that only works in a factory","A clockwork doll that serves tea"],a:1,w:"The future section explains that people may work from home by controlling a robot located somewhere else."}
+];
+let name="",index=0,score=0,correctCount=0,startedAt=0,questionStartedAt=0,questionTimer=null,locked=false,submitted=false,channel=null;
+const QUESTION_SECONDS=15;
+function stopQuestionTimer(){if(questionTimer){clearInterval(questionTimer);questionTimer=null}}
+function updateTimer(){const elapsed=(Date.now()-questionStartedAt)/1000;const left=Math.max(0,Math.ceil(QUESTION_SECONDS-elapsed));$("timer").textContent=`${left}s`;if(left<=0){stopQuestionTimer();if(!locked)choose(-1)}}
+const $=id=>document.getElementById(id);
+function show(id){["welcome","quizPanel","resultPanel","boardPanel"].forEach(x=>$(x).classList.toggle("hidden",x!==id))}
+function renderQuestion(){
+ stopQuestionTimer();locked=false;questionStartedAt=Date.now();const q=questions[index];
+ $("counter").textContent=`QUESTION ${String(index+1).padStart(2,"0")} / ${questions.length}`;
+ $("topic").textContent=q.topic;$("kicker").textContent=q.kicker;$("question").textContent=q.q;
+ $("progress").style.width=`${index/questions.length*100}%`;
+ $("feedback").className="feedback";$("feedback").textContent="";$("nextBtn").disabled=true;
+ $("nextBtn").textContent=index===questions.length-1?"Finish quiz →":"Next question →";
+ $("options").innerHTML="";updateTimer();questionTimer=setInterval(updateTimer,100);
+ q.o.forEach((v,i)=>{const b=document.createElement("button");b.className="option";const letter=document.createElement("span");letter.className="letter";letter.textContent="ABCD"[i];const t=document.createElement("span");t.textContent=v;b.append(letter,t);b.onclick=()=>choose(i);$("options").append(b)});
+}
+function choose(n){
+ if(locked)return;locked=true;stopQuestionTimer();const q=questions[index];let earned=0;if(n===q.a){correctCount++;const elapsed=Math.min(QUESTION_SECONDS,(Date.now()-questionStartedAt)/1000);earned=Math.max(10,Math.ceil(100-(elapsed/QUESTION_SECONDS)*90));score+=earned;}
+ [...$("options").children].forEach((b,i)=>{b.disabled=true;if(i===q.a)b.classList.add("correct");if(i===n&&n!==q.a)b.classList.add("incorrect")});
+ $("feedback").textContent=n===-1?`Time's up! No points this time. ${q.w}`:(n===q.a?`That's right! +${earned} points. `:"Not quite. 0 points. ")+q.w;$("feedback").classList.add("show");$("nextBtn").disabled=false;
+}
+$("startBtn").onclick=()=>{
+ const n=$("studentName").value.trim().replace(/\s+/g," ");
+ if(n.length<1){$("welcomeError").textContent="Please enter a name or nickname.";return}
+ if(!configured){$("welcomeError").textContent="The shared leaderboard has not been connected yet. The organiser needs to finish the setup in the instructions.";return}
+ name=n.slice(0,20);index=0;score=0;correctCount=0;startedAt=Date.now();submitted=false;show("quizPanel");renderQuestion();
+};
+$("nextBtn").onclick=()=>{if(!locked)return;index++;if(index<questions.length)renderQuestion();else finish()};
+async function finish(){
+ stopQuestionTimer();show("resultPanel");$("score").textContent=`${score} / 1200`;
+ $("resultTitle").textContent=correctCount>=10?"Excellent work!":correctCount>=7?"Nicely done!":"Thanks for taking part!";
+ $("resultMessage").textContent=`${name}, you got ${correctCount} of ${questions.length} correct. Your speed points have been recorded.`;
+ $("saveStatus").innerHTML='<span class="dot"></span><span>Saving your score…</span>';
+ const duration=Math.max(1,Math.round((Date.now()-startedAt)/1000));
+ try{
+  const {error}=await db.from("robotics_quiz_scores").insert({display_name:name,score,total:1200,duration_seconds:duration});
+  if(error)throw error;submitted=true;
+  $("saveStatus").innerHTML='<span class="dot live"></span><span>Your score is on the leaderboard.</span>';
+ }catch(e){$("saveStatus").innerHTML='<span class="dot"></span><span>Could not save score. Please tell the organiser.</span>';console.error(e)}
+}
+async function loadBoard(){
+ $("liveStatus").innerHTML='<span class="dot"></span><span>Updating leaderboard…</span>';
+ const {data,error}=await db.from("robotics_quiz_scores").select("display_name,score,total,duration_seconds,created_at").order("score",{ascending:false}).order("duration_seconds",{ascending:true}).order("created_at",{ascending:true}).limit(100);
+ if(error){$("boardRows").innerHTML='<tr><td colspan="4">Could not load scores. Check the database setup.</td></tr>';$("liveStatus").textContent="Connection issue";console.error(error);return}
+ $("boardRows").innerHTML="";
+ if(!data.length){$("boardRows").innerHTML='<tr><td colspan="4">No scores yet. Be the first to play!</td></tr>'}
+ data.forEach((r,i)=>{
+  const tr=document.createElement("tr");if(r.display_name===name)tr.className="me";
+  const rank=i===0?"🥇":i===1?"🥈":i===2?"🥉":String(i+1);
+  const vals=[rank,r.display_name,`${r.score}/${r.total}`,`${Math.floor(r.duration_seconds/60)}:${String(r.duration_seconds%60).padStart(2,"0")}`];
+  vals.forEach((v,j)=>{const td=document.createElement("td");td.textContent=v;if(j===0)td.className="rank";tr.append(td)});$("boardRows").append(tr);
+ });
+ $("liveStatus").innerHTML='<span class="dot live"></span><span>Live class standings · refreshes automatically</span>';
+}
+$("showBoardBtn").onclick=()=>{show("boardPanel");loadBoard();if(!channel){channel=db.channel("robotics-leaderboard").on("postgres_changes",{event:"INSERT",schema:"public",table:"robotics_quiz_scores"},()=>loadBoard()).subscribe()}};
+$("refreshBtn").onclick=loadBoard;
+</script>
+</body></html>
